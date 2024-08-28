@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Recuperar os componentes EditText
 
         val edtPeso = findViewById<TextInputEditText>(R.id.edt_peso)
         val edtAltura = findViewById<TextInputEditText>(R.id.edt_altura)
@@ -26,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-            if (pesoStr == "" || alturaStr == ""){
+            if (pesoStr == "" || alturaStr == "") {
 
                 Snackbar.make(
                     edtPeso,
@@ -34,16 +33,13 @@ class MainActivity : AppCompatActivity() {
                     Snackbar.LENGTH_LONG
                 ).show()
 
-            }else{
+            } else {
                 val peso = pesoStr.toFloat()
                 val altura = alturaStr.toFloat()
 
                 val alturaQ2 = altura * altura
                 val resultado = peso / alturaQ2
 
-                // navegar para a proxima tela
-                // criar layout para a proxima tela
-                // passar dados para a proxima tela
 
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra(KEY_RESULT_IMC, resultado)
